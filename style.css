@@ -1,0 +1,40 @@
+/* import 'sweetalert2/src/sweetalert2.scss' */
+
+
+* {
+
+    padding: 0;
+    margin: 0;
+}
+img{
+    width: 160px;
+    height: 160px;
+    align-content:center;
+
+ 
+}
+
+.puzzle{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+    width:80px;
+    height:80px;
+    margin: 50px;
+    padding:50px;
+    position: relative;
+}
+
+
+body{
+    background-color: aliceblue;
+}
+#circle{
+    background-color: aqua;
+   text-align: center;
+   text-decoration: blue;
+    width:70px;
+    height: 80px;
+    margin: 100px;
+}
+
