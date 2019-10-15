@@ -1,4 +1,4 @@
-/* import 'sweetalert2/src/sweetalert2.scss' */
+
 
 
 * {
@@ -32,7 +32,6 @@ body{
 #circle{
     background-color: aqua;
    text-align: center;
-   text-decoration: blue;
     width:70px;
     height: 80px;
     margin: 100px;
