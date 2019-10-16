@@ -4,23 +4,37 @@ let e1, e2, e3, e4;
 let arr = [e1, e2, e3, e4];
 let a = 90;
 let levelG = 0;
-
-
+let fail = false
+let $phrase = document.querySelector(".word")
 let source = [
-    { level: ["Aquarius/row-1-col-1.jpg", "Aquarius/row-1-col-2.jpg", "Aquarius/row-2-col-1.jpg", "Aquarius/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Libra/row-1-col-1.jpg", "Libra/row-1-col-2.jpg", "Libra/row-2-col-1.jpg", "Libra/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Leo/row-1-col-1.jpg", "Leo/row-1-col-2.jpg", "Leo/row-2-col-1.jpg", "Leo/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Gemini/row-1-col-1.jpg", "Gemini/row-1-col-2.jpg", "Gemini/row-2-col-1.jpg", "Gemini/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Taurus/row-1-col-1.jpg", "Taurus/row-1-col-2.jpg", "Taurus/row-2-col-1.jpg", "Taurus/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Cancer/row-1-col-1.jpg", "Cancer/row-1-col-2.jpg", "Cancer/row-2-col-1.jpg", "Cancer/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Capricornus/row-1-col-1.jpg", "Capricornus/row-1-col-2.jpg", "Capricornus/row-2-col-1.jpg", "Capricornus/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Sagittarius/row-1-col-1.jpg", "Sagittarius/row-1-col-2.jpg", "Sagittarius/row-2-col-1.jpg", "Sagittarius/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Pisces/row-1-col-1.jpg", "Pisces/row-1-col-2.jpg", "Pisces/row-2-col-1.jpg", "Pisces/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Scorpius/row-1-col-1.jpg", "Scorpius/row-1-col-2.jpg", "Scorpius/row-2-col-1.jpg", "Scorpius/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Virgo/row-1-col-1.jpg", "Virgo/row-1-col-2.jpg", "Virgo/row-2-col-1.jpg", "Virgo/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Aries/row-1-col-1.jpg", "Aries/row-1-col-2.jpg", "Aries/row-2-col-1.jpg", "Aries/row-2-col-2.jpg"], info: "this is aquarius!" },
-    { level: ["Ophiuchus/row-1-col-1.jpg", "Ophiuchus/row-1-col-2.jpg", "Ophiuchus/row-2-col-1.jpg", "Ophiuchus/row-2-col-2.jpg"], info: "this is aquarius!" }
+    { level: ["Aquarius/row-1-col-1.jpg", "Aquarius/row-1-col-2.jpg", "Aquarius/row-2-col-1.jpg", "Aquarius/row-2-col-2.jpg"], info: "It’s Aquarius, the water bearer." },
+    { level: ["Libra/row-1-col-1.jpg", "Libra/row-1-col-2.jpg", "Libra/row-2-col-1.jpg", "Libra/row-2-col-2.jpg"], info: "It’s Libra, the scales." },
+    { level: ["Leo/row-1-col-1.jpg", "Leo/row-1-col-2.jpg", "Leo/row-2-col-1.jpg", "Leo/row-2-col-2.jpg"], info: "It’s Leo, the lion." },
+    { level: ["Gemini/row-1-col-1.jpg", "Gemini/row-1-col-2.jpg", "Gemini/row-2-col-1.jpg", "Gemini/row-2-col-2.jpg"], info: "It’s Gemini, the twins." },
+    { level: ["Taurus/row-1-col-1.jpg", "Taurus/row-1-col-2.jpg", "Taurus/row-2-col-1.jpg", "Taurus/row-2-col-2.jpg"], info: "It’s Taurus, the bull." },
+    { level: ["Cancer/row-1-col-1.jpg", "Cancer/row-1-col-2.jpg", "Cancer/row-2-col-1.jpg", "Cancer/row-2-col-2.jpg"], info: "It’s Cancer, the crab." },
+    { level: ["Capricornus/row-1-col-1.jpg", "Capricornus/row-1-col-2.jpg", "Capricornus/row-2-col-1.jpg", "Capricornus/row-2-col-2.jpg"], info: "It’s Capricornus, the goat." },
+    { level: ["Sagittarius/row-1-col-1.jpg", "Sagittarius/row-1-col-2.jpg", "Sagittarius/row-2-col-1.jpg", "Sagittarius/row-2-col-2.jpg"], info: "It’s Sagittarius, the archer." },
+    { level: ["Pisces/row-1-col-1.jpg", "Pisces/row-1-col-2.jpg", "Pisces/row-2-col-1.jpg", "Pisces/row-2-col-2.jpg"], info: "It’s Pisces, the fish." },
+    { level: ["Scorpius/row-1-col-1.jpg", "Scorpius/row-1-col-2.jpg", "Scorpius/row-2-col-1.jpg", "Scorpius/row-2-col-2.jpg"], info: "It’s Scorpius, the scorpion." },
+    { level: ["Virgo/row-1-col-1.jpg", "Virgo/row-1-col-2.jpg", "Virgo/row-2-col-1.jpg", "Virgo/row-2-col-2.jpg"], info: "It’s Virgo, the virgin." },
+    { level: ["Aries/row-1-col-1.jpg", "Aries/row-1-col-2.jpg", "Aries/row-2-col-1.jpg", "Aries/row-2-col-2.jpg"], info: "It’s Aries, the ram." },
+    { level: ["Ophiuchus/row-1-col-1.jpg", "Ophiuchus/row-1-col-2.jpg", "Ophiuchus/row-2-col-1.jpg", "Ophiuchus/row-2-col-2.jpg"], info: "It’s Ophiucus, the serpent bearer." }
 ]
+
+
+var index=0;
+function displayinfo(){
+    
+    var infoX = document.createElement("h1");
+    infoX.innerText=source[index].info;
+    if($phrase.firstChild){
+        $phrase.removeChild($phrase.firstChild);
+    }
+    $phrase.appendChild(infoX);
+    index++;
+
+}
 
 function dispaly() {
 
@@ -31,21 +45,26 @@ function dispaly() {
         arr[i].setAttribute('id', [i])
         arr[i].addEventListener('click', rotate)
 
+        console.log(arr)
+    
     }
     random();
-    count();
+    displayinfo();  
 }
-dispaly();
+
 
 
 function rotate() {
 
-    (a > 360) ? a = 0 : a += 90
-    this.style.transform = "rotate(" + a + "deg)";
-    check();
+    if(!fail){
+        (a > 360) ? a = 0 : a += 90
+        this.style.transform = "rotate(" + a + "deg)";
+        check();
+    }
+   
     // if (win()) {
     //     setTimeout(function(){
-    //         Swal.fire(`you win ${source1[0].level1_info}`)
+    //       
     //     }, 1500)
     // }
 
@@ -59,7 +78,7 @@ function random() {
         arr[i].style.transform = "rotate(" + angle + "deg)";
     }
 }
-random();
+
 
 
 function win() {
@@ -74,70 +93,99 @@ function win() {
 }
 
 
-// reset . jquery 
-/*
-$('select existing html').on('click', 'target_element', function(){
-    
-})
-*/
 
-function count() {
-    seconds = 10;
+// seconds = 120;
+function count(duration, level) {
+    seconds = duration
     var countdown = setInterval(function () {
         seconds--;
         document.getElementById("countdown").textContent = seconds;
-        if (!win() && seconds == 0) {
+
+        console.log(win());
+        
+        if (!win() && seconds == 0 && level !=1) {
             
             Swal.fire('you lose')
-            clear()
+            seconds = duration
+            fail = true
+            clear();
+            $('.start').show()
+            $('.start').text("start over")
+
+           
+        }else if(level || seconds < 0){
+            (seconds < 0) ? document.getElementById("countdown").textContent = 0 : null
+            console.log('got here')
+            clear();
         }
 
     }, 1000);
 
     function clear() {
-        seconds = 10
-        clearInterval(countdown)
+        // seconds = 20;
+        clearInterval(countdown);
     }
 }
 
 
-// countdown = setInterval(function () {
-//     seconds--; 
-//     document.getElementById("countdown").textContent = seconds;
-//     // if (seconds <= 0) clearInterval(countdown);
-//     if (!win() && seconds <= 0) {
-//         clearInterval(countdown)
-//         Swal.fire('you lose')
-//     } 
-// }, 2000);
 
+$('.start').click(function(event){
+    event.preventDefault()
+    levelG = 0;
+    seconds = 13
+    fail = false
+    $('.puzzle').html('')
+    // console.log($('.puzzle'))
+    dispaly()
+    random()
+    count(13,levelG);
+  $('.start').hide()
+})
 
 
 function check() {
     if (win()) {
-        // addeventlistener 
-        //add new line
-        levelG++
-        $picture.innerHTML = ""
-        dispaly();
+        
+        setTimeout(function(){
+            // ++levelG 
+            levelG++
+            $picture.innerHTML = ""
+            dispaly();
+            random()
+            console.log(levelG)
+            count(13, levelG) 
+                }, 1000)
+
+
+        if (win() && levelG==1){
+            Swal.fire("you win")
+            count(0,levelG)
+        }
 
 
 
 
-        // Swal.fire(`you win ${source1[0].level1_info}`)
-        //         Swal.fire({
-        //             title: 'Next Level?',
-        //             type: 'question',
-        //             customClass: {
-        //                 icon: 'swal2-english-question-mark'
-        //             },
-        //             confirmButtonText: 'Yes',
-        //             cancelButtonText: 'No',
-        //             showCancelButton: true,
-        //             showCloseButton: true
+
+//         setTimeout(function(){ 
+        
+//             Swal.fire({
+//             title: ("win" + source1[i].info),
+//             type: 'question',
+//             customClass: {
+//                 icon: 'swal2-english-question-mark'
+//             },
+//             confirmButtonText: 'Yes',
+//             cancelButtonText: 'No',
+//             showCancelButton: true,
+//             showCloseButton: true
+            
+
+// })   }, 1000);
+       
+      
 
 
-
-        // })  
     }
 }
+
+
