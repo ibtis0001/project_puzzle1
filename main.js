@@ -131,7 +131,6 @@ function check() {
             $picture.innerHTML = ""
             dispaly();
             random()
-            console.log(levelG)
             count(13, levelG) 
                 }, 1000)
 
