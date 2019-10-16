@@ -23,6 +23,32 @@ let source = [
 ]
 
 
+Swal.fire({
+    title: '<strong>Hey Brilliant!</strong>',
+    type: 'info',
+    text:
+      'want to know what zodiac means? ' +
+      'play till the end ^_^',
+    showCloseButton: true,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText:
+      'Great!'
+  })
+  
+
+$('.start').click(function(event){
+    event.preventDefault()
+    levelG = 0;
+    seconds = 13
+    fail = false
+    $('.puzzle').html('')
+    dispaly()
+    random()
+    count(13,levelG);
+  $('.start').hide()
+})
+
 var index=0;
 function displayinfo(){
     
@@ -33,43 +59,27 @@ function displayinfo(){
     }
     $phrase.appendChild(infoX);
     index++;
-
 }
 
 function dispaly() {
-
     for (let i = 0; i < arr.length; i++) {
         arr[i] = document.createElement("img")
         $picture.appendChild(arr[i])
         arr[i].setAttribute('src', source[levelG].level[i])
         arr[i].setAttribute('id', [i])
         arr[i].addEventListener('click', rotate)
-
-        console.log(arr)
-    
     }
     random();
-    displayinfo();  
+    displayinfo(); 
 }
 
-
-
 function rotate() {
-
     if(!fail){
         (a > 360) ? a = 0 : a += 90
         this.style.transform = "rotate(" + a + "deg)";
         check();
     }
-   
-    // if (win()) {
-    //     setTimeout(function(){
-    //       
-    //     }, 1500)
-    // }
-
 }
-
 
 function random() {
     for (let i = 0; i < arr.length; i++) {
@@ -79,75 +89,44 @@ function random() {
     }
 }
 
-
-
 function win() {
     for (let i = 0; i < arr.length; i++) {
 
         if (arr[i].style.transform != "rotate(360deg)" && arr[i].style.transform != "rotate(0deg)") {
             return false;
         }
-
     }
     return true;
 }
 
-
-
-// seconds = 120;
 function count(duration, level) {
     seconds = duration
     var countdown = setInterval(function () {
         seconds--;
         document.getElementById("countdown").textContent = seconds;
 
-        console.log(win());
-        
-        if (!win() && seconds == 0 && level !=1) {
-            
+        if (!win() && seconds == 0 && level !=12) {
             Swal.fire('you lose')
             seconds = duration
             fail = true
+            index=0
             clear();
             $('.start').show()
-            $('.start').text("start over")
-
-           
+            $('.start').text("start over") 
         }else if(level || seconds < 0){
             (seconds < 0) ? document.getElementById("countdown").textContent = 0 : null
-            console.log('got here')
-            clear();
+            clear();  
         }
-
     }, 1000);
-
     function clear() {
-        // seconds = 20;
         clearInterval(countdown);
     }
 }
-
-
-
-$('.start').click(function(event){
-    event.preventDefault()
-    levelG = 0;
-    seconds = 13
-    fail = false
-    $('.puzzle').html('')
-    // console.log($('.puzzle'))
-    dispaly()
-    random()
-    count(13,levelG);
-  $('.start').hide()
-})
-
 
 function check() {
     if (win()) {
         
         setTimeout(function(){
-            // ++levelG 
             levelG++
             $picture.innerHTML = ""
             dispaly();
@@ -156,36 +135,15 @@ function check() {
             count(13, levelG) 
                 }, 1000)
 
-
-        if (win() && levelG==1){
-            Swal.fire("you win")
+        if (win() && levelG==12){
+            Swal.fire({
+                type: 'success',
+                title: 'The Zodiac:',
+                text: 'An area of the sky that extends approximately 8° north or south of the apparent path of the Sun across the celestial sphere over the course of the year.',
+                footer: '<a href="https://en.wikipedia.org/wiki/Zodiac">somewhere, something incredible is waiting to be known.</a>'
+              })
             count(0,levelG)
         }
-
-
-
-
-
-//         setTimeout(function(){ 
-        
-//             Swal.fire({
-//             title: ("win" + source1[i].info),
-//             type: 'question',
-//             customClass: {
-//                 icon: 'swal2-english-question-mark'
-//             },
-//             confirmButtonText: 'Yes',
-//             cancelButtonText: 'No',
-//             showCancelButton: true,
-//             showCloseButton: true
-            
-
-// })   }, 1000);
-       
-      
-
-
     }
 }
-
 

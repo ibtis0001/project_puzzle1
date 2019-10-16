@@ -27,7 +27,7 @@ img{
 
 
 body{
-    background-image:url(space1.jpg);
+    background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(space1.jpg);
     background-repeat: no-repeat;
     background-size: cover; 
     width: 100%; 
@@ -38,10 +38,61 @@ body{
     z-index: 0;
 }
 #circle{
-    background-color:white ;
+    font-size: 50px;
+    font-weight: 500;
+    color: #fff;
+    /* background-color:white ; */
    text-align: center;
     width:70px;
     height: 80px;
-    margin: 100px;
+    margin: 140px;
 }
+h1{
+    color:white;
+    text-align: left;
+    font-size: 24px;
+   padding: 20px;
+}
+.start{
+    display:flex;
+    color: white;
+    margin: 200px;
+    box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid $red;
+  border-radius: 0.6em;
+  color: $red;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 100px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+}
+
+//BUTTON 1
+.first {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    box-shadow: 0 0 40px 40px $red inset;
+  }
+}
+   
+  }
+}
+
 
