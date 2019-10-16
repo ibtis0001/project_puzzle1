@@ -17,7 +17,7 @@ sweetalert2
 ```
 
 ### Wireframes
-![alt wireframe](https://github.com/ibtis0001/project_puzzle1.git/to/wireframe.JPEG)
+![alt text](https://github.com/ibtis0001/project_puzzle1.git/to/wireframe.JPEG)
 
 
 ### User Stories
